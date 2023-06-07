@@ -25,7 +25,7 @@ def get_weather(api_key, location_key):
 
 @app.route('/weather', methods=['GET'])
 def weather():
-    api_key = "52RF742OiG6OAGx9qoiTaW1mgDjUoQaZ"  # Replace with your own AccuWeather API key
+    api_key = "Your api key"  # Replace with your own AccuWeather API key
     location_key = request.args.get('location')  # Retrieve the 'location' query parameter
 
     if not location_key:
