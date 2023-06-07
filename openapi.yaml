@@ -1,0 +1,37 @@
+openapi: 3.0.1
+info:
+  title: Weather Plugin
+  description: Plugin for checking weather information based on location.
+  version: '1.0'
+servers:
+  - url: http://localhost:5000/
+paths:
+  /weather:
+    get:
+      operationId: getWeather
+      summary: Get weather information by location
+      parameters:
+        - in: query
+          name: location
+          required: true
+          schema:
+            type: string
+          description: The location for which to retrieve weather information.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeatherResponse'
+components:
+  schemas:
+    WeatherResponse:
+      type: object
+      properties:
+        temperature:
+          type: number
+          description: The current temperature in Celsius.
+        weather:
+          type: string
+          description: The description of the weather condition.
